@@ -1,0 +1,9 @@
+body{font-family:system-ui;margin:0;background:#0b0d12;color:#e9edf7}
+.wrap{width:min(1000px,92vw);margin:30px auto}
+.card{background:#101521;border:1px solid #1e2a41;border-radius:14px;padding:14px;margin-top:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+img{max-width:100%;display:block;border-radius:12px}
+button{padding:10px 12px;border-radius:0;border:0;font-weight:800;cursor:pointer}
+#status{color:#a6b0c6}
+.hidden{display:none}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
