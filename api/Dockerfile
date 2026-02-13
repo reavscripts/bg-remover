@@ -15,4 +15,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app.py .
 
 EXPOSE 10000
-CMD sh -lc "python -m uvicorn app:app --host 0.0.0.0 --port ${PORT:-10000}"
+CMD ["sh", "-lc", "python3 -m uvicorn app:app --host 0.0.0.0 --port ${PORT:-10000} --log-level info"]
