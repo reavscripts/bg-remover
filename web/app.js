@@ -31,6 +31,7 @@ btn.addEventListener("click", async () => {
     const res = await fetch(window.API_URL, {
       method: "POST",
       body: fd,
+      headers: window.API_KEY ? { "x-api-key": window.API_KEY } : {},
     });
 
     if (!res.ok) {
@@ -38,7 +39,7 @@ btn.addEventListener("click", async () => {
       throw new Error(msg || `HTTP ${res.status}`);
     }
 
-    const blob = await res.blob(); // image/png
+    const blob = await res.blob();
     const url = URL.createObjectURL(blob);
 
     out.src = url;
@@ -51,3 +52,4 @@ btn.addEventListener("click", async () => {
     btn.disabled = false;
   }
 });
+
