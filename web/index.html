@@ -7,29 +7,134 @@
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo">RB</div>
+      <div>
+        <div class="brand-title">removebg</div>
+        <div class="brand-sub">Rimuovi lo sfondo e scarica PNG trasparente</div>
+      </div>
+    </div>
+
+    <div class="top-actions">
+      <a class="chip" href="https://bg-remover-lexe.onrender.com/health" target="_blank" rel="noreferrer">
+        API status
+      </a>
+    </div>
+  </header>
+
   <main class="wrap">
-    <h1>Rimuovi background</h1>
+    <section class="hero">
+      <h1>Rimuovi background</h1>
+      <p class="muted">
+        Carica un’immagine, genera il PNG con trasparenza e scaricalo.
+      </p>
+    </section>
 
-    <div class="card">
-      <input id="file" type="file" accept="image/*" />
-      <button id="btn" disabled>Rimuovi e genera PNG</button>
-      <a id="download" class="hidden" download="no-bg.png">Scarica PNG</a>
-      <p id="status"></p>
-    </div>
+    <section class="grid">
+      <!-- LEFT: Upload + Controls -->
+      <div class="card">
+        <div class="card-head">
+          <h2>Upload</h2>
+          <span class="pill">PNG • JPG • WEBP</span>
+        </div>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Originale</h3>
-        <img id="prev" />
+        <label class="dropzone" for="file" id="dropzone">
+          <div class="dz-icon">🖼️</div>
+          <div class="dz-text">
+            <div><b>Trascina qui</b> un file oppure <b>clicca</b> per selezionarlo</div>
+            <div class="muted dz-hint">Consiglio: sfondo uniforme = risultato migliore</div>
+          </div>
+          <input id="file" type="file" accept="image/*" />
+        </label>
+
+        <div class="actions">
+          <button id="btn" class="btn primary" disabled>Rimuovi e genera PNG</button>
+          <a id="download" class="btn" download="no-bg.png">Scarica PNG</a>
+          <button id="reset" class="btn ghost" type="button">Reset</button>
+        </div>
+
+        <div class="status-row">
+          <div class="dot" id="dot"></div>
+          <p id="status" class="muted">Carica un’immagine per iniziare.</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Risultato</h3>
-        <img id="out" />
+
+      <!-- RIGHT: Previews -->
+      <div class="card preview">
+        <div class="tabs">
+          <button class="tab active" data-tab="before" type="button">Originale</button>
+          <button class="tab" data-tab="after" type="button">Risultato</button>
+        </div>
+
+        <div class="preview-wrap">
+          <div class="panel show" id="panel-before">
+            <div class="preview-title">Originale</div>
+            <div class="imgbox">
+              <img id="prev" alt="Anteprima originale" />
+            </div>
+          </div>
+
+          <div class="panel" id="panel-after">
+            <div class="preview-title">PNG trasparente</div>
+            <div class="imgbox checker">
+              <img id="out" alt="Risultato senza background" />
+            </div>
+          </div>
+        </div>
+
+        <div class="hint muted">
+          Tip: se il risultato sembra vuoto, controlla che l’API risponda e che l’immagine non superi il limite.
+        </div>
       </div>
-    </div>
+    </section>
   </main>
 
   <script src="./config.js"></script>
   <script src="./app.js"></script>
+
+  <!-- UI-only: tabs + drag styling (non tocca la logica fetch) -->
+  <script>
+    // Tabs (Originale/Risultato)
+    const tabs = document.querySelectorAll(".tab");
+    const before = document.getElementById("panel-before");
+    const after = document.getElementById("panel-after");
+    tabs.forEach(t => t.addEventListener("click", () => {
+      tabs.forEach(x => x.classList.remove("active"));
+      t.classList.add("active");
+      const isBefore = t.dataset.tab === "before";
+      before.classList.toggle("show", isBefore);
+      after.classList.toggle("show", !isBefore);
+    }));
+
+    // Drag visual only
+    const dz = document.getElementById("dropzone");
+    ["dragenter","dragover"].forEach(ev => dz.addEventListener(ev, e => {
+      e.preventDefault(); e.stopPropagation(); dz.classList.add("dragover");
+    }));
+    ["dragleave","drop"].forEach(ev => dz.addEventListener(ev, e => {
+      e.preventDefault(); e.stopPropagation(); dz.classList.remove("dragover");
+    }));
+
+    // Reset button (se esiste nel tuo app.js puoi ignorare; qui è solo UI)
+    const resetBtn = document.getElementById("reset");
+    resetBtn?.addEventListener("click", () => {
+      const file = document.getElementById("file");
+      const prev = document.getElementById("prev");
+      const out = document.getElementById("out");
+      const dl = document.getElementById("download");
+      const btn = document.getElementById("btn");
+      const status = document.getElementById("status");
+      const dot = document.getElementById("dot");
+
+      if (file) file.value = "";
+      if (prev) prev.removeAttribute("src");
+      if (out) out.removeAttribute("src");
+      if (dl) dl.removeAttribute("href");
+      if (btn) btn.disabled = true;
+      if (status) status.textContent = "Carica un’immagine per iniziare.";
+      if (dot) dot.dataset.state = "idle";
+    });
+  </script>
 </body>
 </html>

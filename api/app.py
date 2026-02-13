@@ -6,7 +6,7 @@ from rembg import remove
 
 app = FastAPI()
 
-# ENV
+# ENV 
 FRONTEND_URL = os.getenv("FRONTEND_URL", "*")
 MAX_BYTES = int(os.getenv("MAX_BYTES", str(10 * 1024 * 1024)))  # default 10MB
 API_KEY = os.getenv("API_KEY", "")  # opzionale
