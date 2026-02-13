@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BG Remover</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./favicon/android-chrome-192x192.png">
+  <link rel="apple-touch-icon" href="./favicon/apple-touch-icon.png">
+  <link rel="manifest" href="./favicon/site.webmanifest">
+
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
@@ -17,6 +24,10 @@
     </div>
 
     <div class="top-actions">
+      <a class="chip" href="https://reav.space/" target="_blank" rel="noreferrer">
+        ← Back to reav.space
+      </a>
+
       <a class="chip" href="https://bg-remover-lexe.onrender.com/health" target="_blank" rel="noreferrer">
         API status
       </a>
@@ -93,9 +104,7 @@
   <script src="./config.js"></script>
   <script src="./app.js"></script>
 
-  <!-- UI-only: tabs + drag styling (does not touch fetch logic) -->
   <script>
-    // Tabs (Original/Result)
     const tabs = document.querySelectorAll(".tab");
     const before = document.getElementById("panel-before");
     const after = document.getElementById("panel-after");
@@ -107,7 +116,6 @@
       after.classList.toggle("show", !isBefore);
     }));
 
-    // Drag visual only
     const dz = document.getElementById("dropzone");
     ["dragenter","dragover"].forEach(ev => dz.addEventListener(ev, e => {
       e.preventDefault(); e.stopPropagation(); dz.classList.add("dragover");
@@ -116,7 +124,6 @@
       e.preventDefault(); e.stopPropagation(); dz.classList.remove("dragover");
     }));
 
-    // Reset button (if you also handle reset in app.js, this is still safe)
     const resetBtn = document.getElementById("reset");
     resetBtn?.addEventListener("click", () => {
       const file = document.getElementById("file");
