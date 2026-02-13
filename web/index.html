@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +12,7 @@
       <div class="logo">RB</div>
       <div>
         <div class="brand-title">removebg</div>
-        <div class="brand-sub">Rimuovi lo sfondo e scarica PNG trasparente</div>
+        <div class="brand-sub">Remove backgrounds and download transparent PNGs</div>
       </div>
     </div>
 
@@ -25,9 +25,9 @@
 
   <main class="wrap">
     <section class="hero">
-      <h1>Rimuovi background</h1>
+      <h1>Remove background</h1>
       <p class="muted">
-        Carica un’immagine, genera il PNG con trasparenza e scaricalo.
+        Upload an image, generate a transparent PNG, and download it.
       </p>
     </section>
 
@@ -42,49 +42,49 @@
         <label class="dropzone" for="file" id="dropzone">
           <div class="dz-icon">🖼️</div>
           <div class="dz-text">
-            <div><b>Trascina qui</b> un file oppure <b>clicca</b> per selezionarlo</div>
-            <div class="muted dz-hint">Consiglio: sfondo uniforme = risultato migliore</div>
+            <div><b>Drag & drop</b> a file here or <b>click</b> to browse</div>
+            <div class="muted dz-hint">Tip: clean backgrounds usually give better results</div>
           </div>
           <input id="file" type="file" accept="image/*" />
         </label>
 
         <div class="actions">
-          <button id="btn" class="btn primary" disabled>Rimuovi e genera PNG</button>
-          <a id="download" class="btn" download="no-bg.png">Scarica PNG</a>
+          <button id="btn" class="btn primary" disabled>Remove & generate PNG</button>
+          <a id="download" class="btn" download="no-bg.png">Download PNG</a>
           <button id="reset" class="btn ghost" type="button">Reset</button>
         </div>
 
         <div class="status-row">
           <div class="dot" id="dot"></div>
-          <p id="status" class="muted">Carica un’immagine per iniziare.</p>
+          <p id="status" class="muted">Upload an image to get started.</p>
         </div>
       </div>
 
       <!-- RIGHT: Previews -->
       <div class="card preview">
         <div class="tabs">
-          <button class="tab active" data-tab="before" type="button">Originale</button>
-          <button class="tab" data-tab="after" type="button">Risultato</button>
+          <button class="tab active" data-tab="before" type="button">Original</button>
+          <button class="tab" data-tab="after" type="button">Result</button>
         </div>
 
         <div class="preview-wrap">
           <div class="panel show" id="panel-before">
-            <div class="preview-title">Originale</div>
+            <div class="preview-title">Original</div>
             <div class="imgbox">
-              <img id="prev" alt="Anteprima originale" />
+              <img id="prev" alt="Original preview" />
             </div>
           </div>
 
           <div class="panel" id="panel-after">
-            <div class="preview-title">PNG trasparente</div>
+            <div class="preview-title">Transparent PNG</div>
             <div class="imgbox checker">
-              <img id="out" alt="Risultato senza background" />
+              <img id="out" alt="Background removed result" />
             </div>
           </div>
         </div>
 
         <div class="hint muted">
-          Tip: se il risultato sembra vuoto, controlla che l’API risponda e che l’immagine non superi il limite.
+          Tip: if the result looks empty, make sure the API is responding and your image isn’t too large.
         </div>
       </div>
     </section>
@@ -93,9 +93,9 @@
   <script src="./config.js"></script>
   <script src="./app.js"></script>
 
-  <!-- UI-only: tabs + drag styling (non tocca la logica fetch) -->
+  <!-- UI-only: tabs + drag styling (does not touch fetch logic) -->
   <script>
-    // Tabs (Originale/Risultato)
+    // Tabs (Original/Result)
     const tabs = document.querySelectorAll(".tab");
     const before = document.getElementById("panel-before");
     const after = document.getElementById("panel-after");
@@ -116,7 +116,7 @@
       e.preventDefault(); e.stopPropagation(); dz.classList.remove("dragover");
     }));
 
-    // Reset button (se esiste nel tuo app.js puoi ignorare; qui è solo UI)
+    // Reset button (if you also handle reset in app.js, this is still safe)
     const resetBtn = document.getElementById("reset");
     resetBtn?.addEventListener("click", () => {
       const file = document.getElementById("file");
@@ -132,7 +132,7 @@
       if (out) out.removeAttribute("src");
       if (dl) dl.removeAttribute("href");
       if (btn) btn.disabled = true;
-      if (status) status.textContent = "Carica un’immagine per iniziare.";
+      if (status) status.textContent = "Upload an image to get started.";
       if (dot) dot.dataset.state = "idle";
     });
   </script>
