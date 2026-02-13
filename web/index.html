@@ -3,7 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BG Remover</title>
+
+  <title>removebg • Background Remover (Transparent PNG) | reav.space</title>
+  <meta name="description" content="Remove image backgrounds in seconds and download a transparent PNG. Simple, fast, and privacy-friendly." />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#0b0d12" />
+  <link rel="canonical" href="https://removebg.reav.space/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="reav.space" />
+  <meta property="og:title" content="removebg • Background Remover" />
+  <meta property="og:description" content="Remove image backgrounds in seconds and download a transparent PNG." />
+  <meta property="og:url" content="https://removebg.reav.space/" />
+  <meta property="og:image" content="https://removebg.reav.space/favicon/android-chrome-512x512.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="removebg • Background Remover" />
+  <meta name="twitter:description" content="Remove image backgrounds in seconds and download a transparent PNG." />
+  <meta name="twitter:image" content="https://removebg.reav.space/favicon/android-chrome-512x512.png" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
@@ -12,7 +33,73 @@
   <link rel="manifest" href="./favicon/site.webmanifest">
 
   <link rel="stylesheet" href="./styles.css" />
+
+  <!-- Landing-only helpers (keeps your existing CSS intact) -->
+  <style>
+    .nav-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .nav-links .chip{white-space:nowrap}
+    .hero{padding: 10px 2px 4px}
+    .hero-kicker{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:6px 10px;border:1px solid rgba(255,255,255,.10);
+      border-radius:999px;background: rgba(255,255,255,.05);
+      color: var(--muted);font-size:12px;margin-bottom:10px
+    }
+    .hero h1{line-height:1.12}
+    .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .hero-cta .btn{min-width: 180px}
+    .section{margin-top:16px}
+    .section h2{margin:0 0 8px;font-size:16px}
+    .mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .mini-card{
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;padding:12px;background: rgba(0,0,0,.12)
+    }
+    .mini-card .t{font-weight:900}
+    .mini-card .d{margin-top:6px;color:var(--muted);font-size:13px;line-height:1.45}
+    .badge{
+      display:inline-flex;align-items:center;gap:6px;
+      font-size:12px;color:var(--muted);margin-top:10px
+    }
+    .badge b{color: var(--text)}
+    .fineprint{font-size:12.5px;color:var(--muted);line-height:1.5}
+    .faq details{
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:16px;background: rgba(0,0,0,.12);
+      padding:12px;margin-top:10px
+    }
+    .faq summary{cursor:pointer;font-weight:900}
+    .faq p{margin:8px 0 0;color:var(--muted);line-height:1.5}
+    .footerbar{
+      margin-top:18px;
+      display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+      padding-top:12px;border-top:1px solid rgba(255,255,255,.06);
+      color:var(--muted);font-size:12.5px
+    }
+    @media (max-width: 980px){
+      .mini-grid{grid-template-columns:1fr}
+    }
+  </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "removebg",
+    "url": "https://removebg.reav.space/",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Web",
+    "description": "Remove image backgrounds and download transparent PNGs.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "reav.space",
+      "url": "https://reav.space/"
+    }
+  }
+  </script>
 </head>
+
 <body>
   <header class="topbar">
     <div class="brand">
@@ -23,88 +110,172 @@
       </div>
     </div>
 
-    <div class="top-actions">
-      <a class="chip" href="https://reav.space/" target="_blank" rel="noreferrer">
-        ← Back to reav.space
-      </a>
-
-      <a class="chip" href="https://bg-remover-lexe.onrender.com/health" target="_blank" rel="noreferrer">
-        API status
-      </a>
+    <div class="top-actions nav-links">
+      <a class="chip" href="https://reav.space/" target="_blank" rel="noreferrer">← Back to reav.space</a>
+      <a class="chip" href="https://bg-remover-lexe.onrender.com/health" target="_blank" rel="noreferrer">API status</a>
     </div>
   </header>
 
   <main class="wrap">
+    <!-- Minimal SaaS landing -->
     <section class="hero">
-      <h1>Remove background</h1>
+      <div class="hero-kicker">⚡ Fast • 🧊 Minimal • 🔒 Privacy-friendly</div>
+      <h1>Remove image backgrounds<br/>in seconds.</h1>
       <p class="muted">
-        Upload an image, generate a transparent PNG, and download it.
+        Upload an image, generate a transparent PNG, and download it instantly.
+        Perfect for product photos, avatars, thumbnails, and quick mockups.
       </p>
-    </section>
 
-    <section class="grid">
-      <!-- LEFT: Upload + Controls -->
-      <div class="card">
-        <div class="card-head">
-          <h2>Upload</h2>
-          <span class="pill">PNG • JPG • WEBP</span>
-        </div>
-
-        <label class="dropzone" for="file" id="dropzone">
-          <div class="dz-icon">🖼️</div>
-          <div class="dz-text">
-            <div><b>Drag & drop</b> a file here or <b>click</b> to browse</div>
-            <div class="muted dz-hint">Tip: clean backgrounds usually give better results</div>
-          </div>
-          <input id="file" type="file" accept="image/*" />
-        </label>
-
-        <div class="actions">
-          <button id="btn" class="btn primary" disabled>Remove & generate PNG</button>
-          <a id="download" class="btn" download="no-bg.png">Download PNG</a>
-          <button id="reset" class="btn ghost" type="button">Reset</button>
-        </div>
-
-        <div class="status-row">
-          <div class="dot" id="dot"></div>
-          <p id="status" class="muted">Upload an image to get started.</p>
-        </div>
+      <div class="hero-cta">
+        <a class="btn primary" href="#tool">Try it now</a>
+        <a class="btn" href="#how">How it works</a>
       </div>
 
-      <!-- RIGHT: Previews -->
-      <div class="card preview">
-        <div class="tabs">
-          <button class="tab active" data-tab="before" type="button">Original</button>
-          <button class="tab" data-tab="after" type="button">Result</button>
+      <div class="badge">
+        <span>✔</span>
+        <span><b>No account</b> • <b>One-click download</b> • <b>Transparent PNG</b></span>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <h2>How it works</h2>
+      <div class="mini-grid">
+        <div class="mini-card">
+          <div class="t">1) Upload</div>
+          <div class="d">Drop a JPG/PNG/WEBP. We’ll preview it instantly.</div>
         </div>
-
-        <div class="preview-wrap">
-          <div class="panel show" id="panel-before">
-            <div class="preview-title">Original</div>
-            <div class="imgbox">
-              <img id="prev" alt="Original preview" />
-            </div>
-          </div>
-
-          <div class="panel" id="panel-after">
-            <div class="preview-title">Transparent PNG</div>
-            <div class="imgbox checker">
-              <img id="out" alt="Background removed result" />
-            </div>
-          </div>
+        <div class="mini-card">
+          <div class="t">2) Remove</div>
+          <div class="d">Click <b>Remove & generate PNG</b>. The background becomes transparent.</div>
         </div>
-
-        <div class="hint muted">
-          Tip: if the result looks empty, make sure the API is responding and your image isn’t too large.
+        <div class="mini-card">
+          <div class="t">3) Download</div>
+          <div class="d">Download the generated PNG with alpha transparency.</div>
         </div>
       </div>
     </section>
+
+    <section class="section" id="tool">
+      <!-- Original app layout -->
+      <section class="grid">
+        <!-- LEFT: Upload + Controls -->
+        <div class="card">
+          <div class="card-head">
+            <h2>Upload</h2>
+            <span class="pill">PNG • JPG • WEBP</span>
+          </div>
+
+          <label class="dropzone" for="file" id="dropzone">
+            <div class="dz-icon">🖼️</div>
+            <div class="dz-text">
+              <div><b>Drag & drop</b> a file here or <b>click</b> to browse</div>
+              <div class="muted dz-hint">Tip: clean backgrounds usually give better results</div>
+            </div>
+            <input id="file" type="file" accept="image/*" />
+          </label>
+
+          <div class="actions">
+            <button id="btn" class="btn primary" disabled>Remove & generate PNG</button>
+            <a id="download" class="btn hidden" download="no-bg.png">Download PNG</a>
+            <button id="reset" class="btn ghost" type="button">Reset</button>
+          </div>
+
+          <div class="status-row">
+            <div class="dot" id="dot" data-state="idle"></div>
+            <p id="status" class="muted">Upload an image to get started.</p>
+          </div>
+
+          <p class="fineprint" style="margin-top:10px">
+            Privacy note: images are processed by the service backend to generate the transparent PNG. Avoid uploading sensitive content.
+          </p>
+        </div>
+
+        <!-- RIGHT: Previews -->
+        <div class="card preview">
+          <div class="tabs">
+            <button class="tab active" data-tab="before" type="button">Original</button>
+            <button class="tab" data-tab="after" type="button">Result</button>
+          </div>
+
+          <div class="preview-wrap">
+            <div class="panel show" id="panel-before">
+              <div class="preview-title">Original</div>
+              <div class="imgbox">
+                <img id="prev" alt="Original preview" />
+              </div>
+            </div>
+
+            <div class="panel" id="panel-after">
+              <div class="preview-title">Transparent PNG</div>
+              <div class="imgbox checker">
+                <img id="out" alt="Background removed result" />
+              </div>
+            </div>
+          </div>
+
+          <div class="hint muted">
+            Tip: if the result looks empty, make sure the API is responding and your image isn’t too large.
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <section class="section">
+      <h2>Features</h2>
+      <div class="mini-grid">
+        <div class="mini-card">
+          <div class="t">Clean UI</div>
+          <div class="d">Minimal SaaS-style interface. No clutter, just the tool.</div>
+        </div>
+        <div class="mini-card">
+          <div class="t">Transparent PNG</div>
+          <div class="d">Download a PNG with alpha—ready for Canva/Photoshop/shops.</div>
+        </div>
+        <div class="mini-card">
+          <div class="t">Fast workflow</div>
+          <div class="d">Upload → remove → download. Great for quick batches.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq">
+      <h2>FAQ</h2>
+
+      <details>
+        <summary>What file types are supported?</summary>
+        <p>Most common image formats: JPG, PNG, and WEBP.</p>
+      </details>
+
+      <details>
+        <summary>Why does the result look empty?</summary>
+        <p>It can happen with very complex images or if the subject blends with the background. Try a higher-contrast photo or a cleaner background.</p>
+      </details>
+
+      <details>
+        <summary>Is it free?</summary>
+        <p>Yes for now. If you plan to publish it, consider adding rate limits to protect the API from abuse.</p>
+      </details>
+    </section>
+
+    <div class="footerbar">
+      <div>© <span id="y"></span> reav.space</div>
+      <div>
+        <a href="https://reav.space/" target="_blank" rel="noreferrer">reav.space</a>
+        <span> • </span>
+        <a href="#tool">Use the tool</a>
+      </div>
+    </div>
   </main>
 
   <script src="./config.js"></script>
   <script src="./app.js"></script>
 
+  <!-- UI-only: tabs + drag styling (does not touch fetch logic) -->
   <script>
+    // year
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    // Tabs (Original/Result)
     const tabs = document.querySelectorAll(".tab");
     const before = document.getElementById("panel-before");
     const after = document.getElementById("panel-after");
@@ -116,6 +287,7 @@
       after.classList.toggle("show", !isBefore);
     }));
 
+    // Drag visual only
     const dz = document.getElementById("dropzone");
     ["dragenter","dragover"].forEach(ev => dz.addEventListener(ev, e => {
       e.preventDefault(); e.stopPropagation(); dz.classList.add("dragover");
@@ -124,6 +296,7 @@
       e.preventDefault(); e.stopPropagation(); dz.classList.remove("dragover");
     }));
 
+    // Reset button (safe even if app.js also handles reset)
     const resetBtn = document.getElementById("reset");
     resetBtn?.addEventListener("click", () => {
       const file = document.getElementById("file");
@@ -138,6 +311,7 @@
       if (prev) prev.removeAttribute("src");
       if (out) out.removeAttribute("src");
       if (dl) dl.removeAttribute("href");
+      if (dl) dl.classList.add("hidden");
       if (btn) btn.disabled = true;
       if (status) status.textContent = "Upload an image to get started.";
       if (dot) dot.dataset.state = "idle";
